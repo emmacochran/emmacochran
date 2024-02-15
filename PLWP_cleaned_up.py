@@ -1,3 +1,7 @@
+#predawn integral analysis for MOFLUX site
+#creates csv with continuous community averaged predawn leaf water potentials for growing season monitoring periods
+#non-growing season is excluded
+
 import pandas as pd
 import numpy as num
 import matplotlib.pyplot as plt
@@ -52,7 +56,6 @@ histogramdf=pd.DataFrame()
 fullPLWPgrowingseason = []
 #create blank rows for every day not accounted for
 yearListStrs= [str(x) for x in yearList]
-#yearListStrs= ['2004', '2005']
 for year in yearListStrs:
     df1=pd.read_csv(root+ '/' + "Year_" + year + "_Clean.csv")
     firstDay=df1[' DOY'][0]
@@ -81,7 +84,6 @@ growingseasonsdf=pd.concat(growingseasonsdf)
 growingseasonsdf=growingseasonsdf.reset_index()
 growingseasonsdf['TIMESTAMP']=num.nan
 
-
 for ind in growingseasonsdf.index:
     year= growingseasonsdf.iloc[ind]['Year']
     day= growingseasonsdf.iloc[ind][' DOY']
@@ -95,6 +97,7 @@ for ind in growingseasonsdf.index:
 # growingseasonsdf=growingseasonsdf.drop(['Year', ' DOY'], axis=1)
 growingseasonsdf=growingseasonsdf.drop(['Year'], axis=1)
 growingseasonsdf=growingseasonsdf.to_csv('Chapter1_three_bin' +'/'+ r'growing_seasons_all.csv', index=False)
+
 #     #find min value
 #     minPLWP= df1[' PLWP'].min()
 #     minPLWPList.append(minPLWP)
