@@ -1,3 +1,7 @@
+#in progress
+#predicting surface energy imbalance using data from the MOFLUX flux tower in central Missouri
+#random forest regression is used
+
 import pandas as pd
 import numpy as num
 import matplotlib.pyplot as plt
@@ -28,6 +32,8 @@ delta_z = 0.1 #m
 data['c_v'] = ((rho_b * c_ps) + (rho_w * c_pw * (data['SWC_F_MDS_1'] / 100))) / 1000 #/100 is to convert percentage, /1000 is to convert m^3 to kg
 data['T-1'] = (data['TS_F_MDS_1'] - data['TS_F_MDS_1'].shift()) / 1800
 data['G_0'] = data['G_F_MDS'] + (data['c_v'] * data['T-1'] * delta_z)
+
+#trimming 
 data['TIMESTAMP_START'] = data['TIMESTAMP_START'].astype(str)
 data['TOD'] = data['TIMESTAMP_START'].str[8:]
 data['month'] = data['TIMESTAMP_START'].str[4:6]
