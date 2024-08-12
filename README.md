@@ -1,5 +1,5 @@
 - I’m @emmacochran (she/her)
-- I'm currently a graduate student studying biosphere-atmosphere interactions.
+- I'm currently a graduate student studying biosphere-atmosphere interactions at the University College Dublin.
 - My research areas of interest are: eddy covariance, carbon and water fluxes, surface energy imbalance, ecosystem drought
 - My main languages are Python and R
 - You can reach me at cochranemma17@gmail.com
